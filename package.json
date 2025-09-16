@@ -8,10 +8,12 @@
     "start": "node server.mjs"
   },
   "dependencies": {
-    "express": "^4.19.0",
-    "node-fetch": "^3.3.2",
-    "@modelcontextprotocol/sdk": "^0.0.7",
-    "zod": "^3.23.8"
+  "express": "^4.19.0",
+  "node-fetch": "^3.3.2",
+  "@modelcontextprotocol/sdk": "0.1.0",
+  "zod": "^3.23.8"
+}
+
   },
   "engines": {
     "node": ">=18"
