@@ -10,7 +10,8 @@
   "dependencies": {
     "express": "^4.19.0",
     "node-fetch": "^3.3.2",
-    "@modelcontextprotocol/sdk": "0.1.0",
+    "@modelcontextprotocol/sdk": "latest"
+,
     "zod": "^3.23.8"
   },
   "engines": {
