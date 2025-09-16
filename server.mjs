@@ -20,8 +20,19 @@ app.get("/health", (req, res) => {
 // Auth middleware for connector calls
 function checkAuth(req, res, next) {
   const auth = req.headers.authorization || "";
-  if (CONNECTOR_TOKEN && auth === `Bearer ${CONNECTOR_TOKEN}`) {
-    return next();
+
+  // If CONNECTOR_TOKEN is defined, enforce it
+  if (process.env.CONNECTOR_TOKEN) {
+    if (auth === `Bearer ${process.env.CONNECTOR_TOKEN}`) {
+      return next();
+    }
+    return res.status(403).json({ error: "Forbidden: Invalid token" });
+  }
+
+  // If CONNECTOR_TOKEN is NOT defined, allow all connections (fallback)
+  return next();
+}
+
   }
   res.status(401).json({ error: "Unauthorized" });
 }
